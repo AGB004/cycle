@@ -1,5 +1,5 @@
-import pyray
 import constants
+import pyray
 
 
 class VideoService:
