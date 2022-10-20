@@ -39,20 +39,12 @@ class HandleCollisionsAction(Action):
         """
         score = cast.get_first_actor("scores")
         food = cast.get_first_actor("foods")
-        snake1 = cast.get_first_actor("snake1")
-        head1 = snake1.get_head()
-        snake2 = cast.get_second_actor("snake2")
-        head2 = snake1.get_head()
+        snake = cast.get_first_actor("snake")
+        head = snake.get_head()
 
-        if head1.get_position().equals(food.get_position()):
+        if head.get_position().equals(food.get_position()):
             points = food.get_points()
-            snake1.grow_tail(points)
-            score.add_points(points)
-            food.reset()
-
-        if head2.get_position().equals(food.get_position()):
-            points = food.get_points()
-            snake2.grow_tail(points)
+            snake.grow_tail(points)
             score.add_points(points)
             food.reset()
     
@@ -62,20 +54,12 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        snake1 = cast.get_first_actor("snake1")
-        head1 = snake1.get_segments()[0]
-        segments = snake1.get_segments()[1:]
+        snake = cast.get_first_actor("snake")
+        head = snake.get_segments()[0]
+        segments = snake.get_segments()[1:]
         
         for segment in segments:
-            if head1.get_position().equals(segment.get_position()):
-                self._is_game_over = True
-
-        snake2 = cast.get_second_actor("snake2")
-        head2 = snake2.get_segments()[0]
-        segments = snake2.get_segments()[1:]
-        
-        for segment in segments:
-            if head2.get_position().equals(segment.get_position()):
+            if head.get_position().equals(segment.get_position()):
                 self._is_game_over = True
         
     def _handle_game_over(self, cast):
@@ -85,10 +69,8 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-            snake1 = cast.get_first_actor("snake1")
-            segments = snake1.get_segments()
-            snake2 = cast.get_second_actor("snake2")
-            segments = snake2.get_segments()
+            snake = cast.get_first_actor("snake")
+            segments = snake.get_segments()
             food = cast.get_first_actor("foods")
 
             x = int(constants.MAX_X / 2)
