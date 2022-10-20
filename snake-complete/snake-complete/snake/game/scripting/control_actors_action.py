@@ -1,3 +1,4 @@
+from game.casting.snake import Snake
 import constants
 from game.scripting.action import Action
 from game.shared.point import Point
@@ -29,7 +30,7 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        if self._cycle_color == constants.RED: 
+        if Snake._cycle_color == constants.RED: 
             # left
             if self._keyboard_service.is_key_down('a'):
                 self._direction = Point(-constants.CELL_SIZE, 0)
