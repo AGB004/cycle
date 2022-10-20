@@ -41,7 +41,7 @@ class HandleCollisionsAction(Action):
         food = cast.get_first_actor("foods")
         snake1 = cast.get_first_actor("snake1")
         head1 = snake1.get_head()
-        snake2 = cast.get_first_actor("snake2")
+        snake2 = cast.get_second_actor("snake2")
         head2 = snake1.get_head()
 
         if head1.get_position().equals(food.get_position()):
@@ -70,7 +70,7 @@ class HandleCollisionsAction(Action):
             if head1.get_position().equals(segment.get_position()):
                 self._is_game_over = True
 
-        snake2 = cast.get_first_actor("snake2")
+        snake2 = cast.get_second_actor("snake2")
         head2 = snake2.get_segments()[0]
         segments = snake2.get_segments()[1:]
         
@@ -87,7 +87,7 @@ class HandleCollisionsAction(Action):
         if self._is_game_over:
             snake1 = cast.get_first_actor("snake1")
             segments = snake1.get_segments()
-            snake2 = cast.get_first_actor("snake2")
+            snake2 = cast.get_second_actor("snake2")
             segments = snake2.get_segments()
             food = cast.get_first_actor("foods")
 
