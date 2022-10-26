@@ -66,6 +66,7 @@ class HandleCollisionsAction(Action):
         snake1 = cast.get_first_actor("snake")
         head1 = snake1.get_segments()[0]
         segments1 = snake1.get_segments()[1:]
+
         snake2 = cast.get_second_actor("snake")
         head2 = snake2.get_segments()[0]
         segments2 = snake2.get_segments()[1:]
@@ -93,8 +94,10 @@ class HandleCollisionsAction(Action):
         if self._is_game_over:
             snake1 = cast.get_first_actor("snake")
             segments1 = snake1.get_segments()
+
             snake2 = cast.get_second_actor("snake")
             segments2 = snake2.get_segments()
+            
             food = cast.get_first_actor("foods")
 
             x = int(constants.MAX_X / 2)
