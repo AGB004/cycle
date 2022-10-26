@@ -19,7 +19,7 @@ def main():
     
     # create the cast
     cast = Cast()
-    # cast.add_actor("foods", Food())
+    cast.add_actor("foods", Food())
     cast.add_actor("snake", Snake(constants.RED))
     cast.add_actor("snake", Snake(constants.GREEN))
     cast.add_actor("scores", Score())
