@@ -57,8 +57,8 @@ class Snake(Actor):
         y = 0
 
         if self._cycle_color == constants.RED:
-            x = int(constants.MAX_X / 6)
-            y = int(constants.MAX_Y / 6)
+            x = int(constants.MAX_X / 3)
+            y = int(constants.MAX_Y / 3)
 
         else:
             x = int(constants.MAX_X / 3)
