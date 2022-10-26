@@ -74,16 +74,48 @@ class HandleCollisionsAction(Action):
         
         for segment in segments1:
             if head1.get_position().equals(segment.get_position()):
+                x = int(constants.MAX_X / 2)
+                y = int(constants.MAX_Y / 2)
+                position = Point(x, y)
+
+                message = Actor()
+                message.set_text("Game Over! Green Snake Wins!")
+                message.set_position(position)
+                cast.add_actor("messages", message)
                 self._is_game_over = True
 
-            if head2.get_position().equals(segment.get_position()):
+            elif head2.get_position().equals(segment.get_position()):
+                x = int(constants.MAX_X / 2)
+                y = int(constants.MAX_Y / 2)
+                position = Point(x, y)
+
+                message = Actor()
+                message.set_text("Game Over! Green Snake Wins!")
+                message.set_position(position)
+                cast.add_actor("messages", message)
                 self._is_game_over = True
         
         for segment in segments2:
             if head2.get_position().equals(segment.get_position()):
+                x = int(constants.MAX_X / 2)
+                y = int(constants.MAX_Y / 2)
+                position = Point(x, y)
+
+                message = Actor()
+                message.set_text("Game Over! Red Snake Wins!")
+                message.set_position(position)
+                cast.add_actor("messages", message)
                 self._is_game_over = True
 
-            if head1.get_position().equals(segment.get_position()):
+            elif head1.get_position().equals(segment.get_position()):
+                x = int(constants.MAX_X / 2)
+                y = int(constants.MAX_Y / 2)
+                position = Point(x, y)
+
+                message = Actor()
+                message.set_text("Game Over! Red Snake Wins!")
+                message.set_position(position)
+                cast.add_actor("messages", message)
                 self._is_game_over = True
         
     def _handle_game_over(self, cast):
@@ -100,15 +132,6 @@ class HandleCollisionsAction(Action):
             segments2 = snake2.get_segments()
             
             food = cast.get_first_actor("foods")
-
-            x = int(constants.MAX_X / 2)
-            y = int(constants.MAX_Y / 2)
-            position = Point(x, y)
-
-            message = Actor()
-            message.set_text("Game Over!")
-            message.set_position(position)
-            cast.add_actor("messages", message)
 
             for segment in segments1:
                 segment.set_color(constants.WHITE)
